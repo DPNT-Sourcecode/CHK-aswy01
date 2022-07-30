@@ -67,7 +67,11 @@ bundle_offers = {
     3: {'rules': {'R': 3, 'Q': 1}, 'discount': 30}
 }
 
-any_of_offers = {}
+any_of_offers = [
+    {'items': ['S','T','X','Y','Z'], 'quantity':3, 'price': 45}
+
+]
+
 
 
 
