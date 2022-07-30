@@ -1,5 +1,6 @@
 import math
 from collections import defaultdict
+from itertools import groupby
 
 from .CheckoutHandler import CheckoutHandler
 from ..models import Cart
@@ -31,13 +32,10 @@ class BundleOffersHandler(CheckoutHandler):
 
             cart.total -= bundle_offer['discount'] * number_of_complete_bundles
 
-            number_of_special_offers_completed = len(sku_items) // special_offer['quantity']
-            number_of_items_in_offer = number_of_special_offers_completed * special_offer['quantity']
+            for (item_sku, items_for_sku) in groupby(sku_items, key=lambda i: i.sku):
 
-            cart.total += special_offer['price'] * number_of_special_offers_completed
+                for item in list(items_for_sku)[:number_of_complete_bundles * bundle_offer['rules'][item_sku]]:
+                    CheckoutHandler.checkout_item(cart, item)
 
-            items_to_remove_from_cart = list(sku_items)[:number_of_items_in_offer]
-
-            cart.items.difference_update(items_to_remove_from_cart)
 
 
