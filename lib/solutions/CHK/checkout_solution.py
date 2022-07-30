@@ -40,11 +40,13 @@ def checkout(skus: str) -> int:
         shopping_cart.append(item_model)
     cart = Cart(shopping_cart)
 
-    bundleOffersHandler.checkout_items(cart)
     specialOffersHandler.checkout_items(cart)
+    bundleOffersHandler.checkout_items(cart)
+
     checkoutHandler.checkout_items(cart)
 
 
     return cart.total
     # raise NotImplementedError()
+
 
