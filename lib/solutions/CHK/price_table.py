@@ -17,6 +17,27 @@ item_prices = [
     {'item':'D', 'price': 15},
     {'item': 'E', 'price': 40},
     {'item': 'F', 'price': 10},
+    {'item': 'G', 'price': 20},
+    {'item': 'H', 'price': 10},
+    {'item': 'I', 'price': 35},
+    {'item': 'J', 'price': 60},
+    {'item': 'K', 'price': 80},
+    {'item': 'L', 'price': 90},
+    {'item': 'M', 'price': 15},
+    {'item': 'N', 'price': 40},
+    {'item': 'O', 'price': 10},
+    {'item': 'P', 'price': 50},
+    {'item': 'Q', 'price': 30},
+    {'item': 'R', 'price': 50},
+    {'item': 'S', 'price': 30},
+    {'item': 'T', 'price': 2},
+    {'item': 'U', 'price': 10},
+    {'item': 'V', 'price': 10},
+    {'item': 'W', 'price': 10},
+    {'item': 'X', 'price': 10},
+    {'item': 'Y', 'price': 10},
+    {'item': 'Z', 'price': 10}
+
 ]
 
 special_offers = {
