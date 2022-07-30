@@ -11,10 +11,10 @@
 
 
 item_prices = [
-    {'item':'A', 'price': 50},
-    {'item':'B', 'price': 30},
-    {'item':'C', 'price': 20},
-    {'item':'D', 'price': 15},
+    {'item': 'A', 'price': 50},
+    {'item': 'B', 'price': 30},
+    {'item': 'C', 'price': 20},
+    {'item': 'D', 'price': 15},
     {'item': 'E', 'price': 40},
     {'item': 'F', 'price': 10},
     {'item': 'G', 'price': 20},
@@ -30,28 +30,33 @@ item_prices = [
     {'item': 'Q', 'price': 30},
     {'item': 'R', 'price': 50},
     {'item': 'S', 'price': 30},
-    {'item': 'T', 'price': 2},
-    {'item': 'U', 'price': 10},
-    {'item': 'V', 'price': 10},
-    {'item': 'W', 'price': 10},
-    {'item': 'X', 'price': 10},
+    {'item': 'T', 'price': 20},
+    {'item': 'U', 'price': 40},
+    {'item': 'V', 'price': 50},
+    {'item': 'W', 'price': 20},
+    {'item': 'X', 'price': 90},
     {'item': 'Y', 'price': 10},
-    {'item': 'Z', 'price': 10}
+    {'item': 'Z', 'price': 50}
 
 ]
 
 special_offers = {
-    'A': [{'quantity': 5, 'price': 200},{'quantity': 3, 'price': 130}],
+    'A': [{'quantity': 5, 'price': 200}, {'quantity': 3, 'price': 130}],
     'B': [{'quantity': 2, 'price': 45}],
-    'F': [{'quantity': 3, 'price': 20}]
+    'F': [{'quantity': 3, 'price': 20}],
+    'H': [{'quantity': 10, 'price': 80}, {'quantity': 5, 'price': 45}],
+    'K': [{'quantity': 2, 'price': 150}],
 }
 
 bundle_assignments = {
     'B': 1,
-    'E': 1
+    'E': 1,
+    'N': 2,
+    'M': 2
 }
 
 bundle_offers = {
-    1: {'rules': {'E': 2, 'B': 1}, 'discount': 30}
-
+    1: {'rules': {'E': 2, 'B': 1}, 'discount': 30},
+    2: {'rules': {'N': 3, 'M': 1}, 'discount': 15}
 }
+
