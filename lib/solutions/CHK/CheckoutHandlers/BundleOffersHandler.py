@@ -37,6 +37,3 @@ class BundleOffersHandler(CheckoutHandler):
                 items_for_sku = list(items_for_sku)
                 for item in list(items_for_sku)[:number_of_items_to_remove]:
                     CheckoutHandler.checkout_item(cart, item)
-
-
-

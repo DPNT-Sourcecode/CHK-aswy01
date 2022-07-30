@@ -29,4 +29,3 @@ class SpecialOffersHandler(CheckoutHandler):
 
                 cart.items.difference_update(items_to_remove_from_cart)
                 sku_items.difference_update(items_to_remove_from_cart)
-
