@@ -50,6 +50,3 @@ class TestHello:
     @pytest.mark.parametrize('item, expected_output', test_examples)
     def test_sum(self, item, expected_output):
         assert checkout_solution.checkout(item) == expected_output
-
-
-
