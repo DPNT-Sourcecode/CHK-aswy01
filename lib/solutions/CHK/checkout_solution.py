@@ -1,4 +1,5 @@
 from . import price_table
+from .CheckoutHandlers.BundleOffersHandler import BundleOffersHandler
 from .CheckoutHandlers.CheckoutHandler import CheckoutHandler
 from .CheckoutHandlers.SpecialOffersHandler import SpecialOffersHandler
 from .models import Item, Cart
@@ -17,9 +18,12 @@ class ItemFactory:
 
 items_factory = ItemFactory(price_table.item_prices)
 
+
+bundleOffersHandler = BundleOffersHandler(price_table.bundle_assignments, price_table.bundle_offers)
 specialOffersHandler = SpecialOffersHandler(price_table.special_offers)
 
 checkoutHandler = CheckoutHandler()
+
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -36,9 +40,11 @@ def checkout(skus: str) -> int:
         shopping_cart.append(item_model)
     cart = Cart(shopping_cart)
 
+    bundleOffersHandler.checkout_items(cart)
     specialOffersHandler.checkout_items(cart)
     checkoutHandler.checkout_items(cart)
 
 
     return cart.total
     # raise NotImplementedError()
+
