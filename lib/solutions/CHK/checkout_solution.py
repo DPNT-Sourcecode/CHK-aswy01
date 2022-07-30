@@ -42,7 +42,7 @@ def checkout(skus: str) -> int:
 
     bundleOffersHandler.checkout_items(cart)
 
-    print('loaded')
+
     specialOffersHandler.checkout_items(cart)
 
 
@@ -51,4 +51,5 @@ def checkout(skus: str) -> int:
 
     return cart.total
     # raise NotImplementedError()
+
 
