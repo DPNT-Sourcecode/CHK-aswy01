@@ -29,5 +29,6 @@ class AnyOfOfferHandler(CheckoutHandler):
                      :number_of_complete_bundles * bundle_quantity]:
                 cart.items.remove(i)
 
-            cart.total += bundle_offer['price']
+            cart.total += bundle_offer['price'] * number_of_complete_bundles
+
 

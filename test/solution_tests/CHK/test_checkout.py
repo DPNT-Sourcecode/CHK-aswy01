@@ -11,7 +11,7 @@ test_examples = [
     #
     # ("C", 20),
     # ("D", 15),
-    ('Z', 21)
+    # ('Z', 21),
     # ('H'*5,45),
     # ('H'*10, 80),
     # ('V'*5,220),
@@ -34,8 +34,8 @@ test_examples = [
     # ("FF", 20),
     # ("FFF", 20),
     # ("AFFF", 70),
-    #
-    # ("STX", 45),
+
+    ("STX", 45),
     # ("XYZ", 45),
     # ("STXXYZ", 45),
 ]
@@ -50,4 +50,5 @@ class TestHello:
     @pytest.mark.parametrize('item, expected_output', test_examples)
     def test_checkout(self, item, expected_output):
         assert checkout_solution.checkout(item) == expected_output
+
 
