@@ -16,4 +16,3 @@ class Cart:
 
     def __init__(self, items: list[Item]):
         self.items = set(items)
-

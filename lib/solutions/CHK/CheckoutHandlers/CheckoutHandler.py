@@ -10,4 +10,3 @@ class CheckoutHandler:
     def checkout_item(cart, item):
         cart.total += item.price
         cart.items.remove(item)
-
