@@ -1,11 +1,12 @@
 item_prices = [
-    {'A': 50},
-    {'B': 30},
-    {'C': 20},
-    {'D': 15},
+    {'item':'A', 'price': 50},
+    {'item':'B', 'price': 30},
+    {'item':'C', 'price': 20},
+    {'item':'D', 'price': 15},
 ]
 
 special_offers = {
     'A': {'quantity': 3, 'price': 130},
     'B': {'quantity': 2, 'price': 45}
 }
+
