@@ -1,4 +1,6 @@
 from . import price_table
+from .CheckoutHandlers.CheckoutHandler import CheckoutHandler
+from .CheckoutHandlers.SpecialOffersHandler import SpecialOffersHandler
 from .models import Item, Cart
 
 
@@ -7,7 +9,7 @@ class ItemFactory:
     def __init__(self, item_prices: list):
         self.items_db = {}
         for item in item_prices:
-            self.items_db['item'] = item['price']
+            self.items_db[item['item']] = item['price']
 
     def get_item(self, sku):
         return Item(sku, self.items_db[sku])
@@ -15,6 +17,9 @@ class ItemFactory:
 
 items_factory = ItemFactory(price_table.item_prices)
 
+specialOffersHandler = SpecialOffersHandler(price_table.special_offers)
+
+checkoutHandler = CheckoutHandler()
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -31,6 +36,10 @@ def checkout(skus: str) -> int:
 
     cart = Cart(shopping_cart)
 
+    specialOffersHandler.checkout_items(cart)
+    checkoutHandler.checkout_items(cart)
 
 
+    return cart.total
     # raise NotImplementedError()
+
