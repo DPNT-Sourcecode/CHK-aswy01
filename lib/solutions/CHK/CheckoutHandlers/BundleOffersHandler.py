@@ -19,7 +19,15 @@ class BundleOffersHandler(CheckoutHandler):
                 items_in_specials[bundle_assigned].add(item)
 
         for sku, sku_items in items_in_specials.items():
-            special_offer = self.bundle_offers[sku]
+            bundle_offer = self.bundle_offers[sku]
+
+
+            for req_sku, count in bundle_offer['rules'].items():
+                filtered_items = filter(lambda i: i.sku==req_sku, sku_items)
+
+
+
+
             number_of_special_offers_completed = len(sku_items) // special_offer['quantity']
             number_of_items_in_offer = number_of_special_offers_completed * special_offer['quantity']
 
@@ -28,3 +36,4 @@ class BundleOffersHandler(CheckoutHandler):
             items_to_remove_from_cart = list(sku_items)[:number_of_items_in_offer]
 
             cart.items.difference_update(items_to_remove_from_cart)
+
