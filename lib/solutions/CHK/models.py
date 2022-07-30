@@ -11,4 +11,5 @@ class Cart:
     total = 0
     def __init__(self, items: list[Item]):
 
-        self.items = items
+        self.items = set(items)
+
