@@ -33,6 +33,7 @@ class BundleOffersHandler(CheckoutHandler):
             cart.total -= bundle_offer['discount'] * number_of_complete_bundles
 
             for (item_sku, items_for_sku) in groupby(sku_items, key=lambda i: i.sku):
-
+                number_of_items_to_remove = number_of_complete_bundles * bundle_offer['rules'][item_sku]
                 for item in list(items_for_sku)[:number_of_complete_bundles * bundle_offer['rules'][item_sku]]:
                     CheckoutHandler.checkout_item(cart, item)
+
