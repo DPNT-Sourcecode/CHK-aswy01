@@ -14,11 +14,11 @@ class BundleOffersHandler(CheckoutHandler):
         self.bundle_offers = bundle_offers
 
     def checkout_items(self, cart: Cart):
-        items_in_specials = defaultdict(set)
+        items_in_specials = defaultdict(list)
         for item in cart.items:
             if item.sku in self.bundle_assignments:
                 bundle_assigned = self.bundle_assignments[item.sku]
-                items_in_specials[bundle_assigned].add(item)
+                items_in_specials[bundle_assigned].append(item)
 
         for sku, sku_items in items_in_specials.items():
             bundle_offer = self.bundle_offers[sku]
@@ -34,7 +34,8 @@ class BundleOffersHandler(CheckoutHandler):
 
             for (item_sku, items_for_sku) in groupby(sku_items, key=lambda i: i.sku):
                 number_of_items_to_remove = number_of_complete_bundles * bundle_offer['rules'][item_sku]
-                for item in list(items_for_sku)[:number_of_complete_bundles * bundle_offer['rules'][item_sku]]:
+                items_for_sku = list(items_for_sku)
+                for item in list(items_for_sku)[:number_of_items_to_remove]:
                     CheckoutHandler.checkout_item(cart, item)
         print('done')
 
