@@ -27,5 +27,3 @@ class SpecialOffersHandler(CheckoutHandler):
             items_to_remove_from_cart = list(sku_items)[:number_of_items_in_offer]
 
             cart.items.difference_update(items_to_remove_from_cart)
-
-

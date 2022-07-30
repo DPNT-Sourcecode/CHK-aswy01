@@ -31,4 +31,3 @@ bundle_offers = {
     1: {'rules': {'E': 2, 'B': 1}, 'discount': 30}
 
 }
-
