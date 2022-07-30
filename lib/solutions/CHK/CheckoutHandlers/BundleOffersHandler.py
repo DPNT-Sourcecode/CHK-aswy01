@@ -36,4 +36,6 @@ class BundleOffersHandler(CheckoutHandler):
                 number_of_items_to_remove = number_of_complete_bundles * bundle_offer['rules'][item_sku]
                 for item in list(items_for_sku)[:number_of_complete_bundles * bundle_offer['rules'][item_sku]]:
                     CheckoutHandler.checkout_item(cart, item)
+        print('done')
+
 

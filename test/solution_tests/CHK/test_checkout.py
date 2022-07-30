@@ -28,6 +28,7 @@ test_examples = [
 ]
 
 
+
 ##EEB for 80
 ##BB for 45
 
@@ -36,3 +37,4 @@ class TestHello:
     @pytest.mark.parametrize('item, expected_output', test_examples)
     def test_sum(self, item, expected_output):
         assert checkout_solution.checkout(item) == expected_output
+
