@@ -33,7 +33,7 @@ def checkout(skus: str) -> int:
     shopping_cart = []
     for item in list(skus):
         item_model = items_factory.get_item(item)
-
+        shopping_cart.append(item_model)
     cart = Cart(shopping_cart)
 
     specialOffersHandler.checkout_items(cart)
@@ -42,4 +42,5 @@ def checkout(skus: str) -> int:
 
     return cart.total
     # raise NotImplementedError()
+
 
