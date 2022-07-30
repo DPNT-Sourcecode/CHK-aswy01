@@ -46,11 +46,12 @@ def checkout(skus: str) -> int:
 
 
     specialOffersHandler.checkout_items(cart)
-    anyOfHandler.checkout_items(cart)
+    # anyOfHandler.checkout_items(cart)
 
     checkoutHandler.checkout_items(cart)
 
 
     return cart.total
     # raise NotImplementedError()
+
 
