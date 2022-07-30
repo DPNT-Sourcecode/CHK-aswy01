@@ -1,5 +1,5 @@
 from . import price_table
-from .models import Item
+from .models import Item, Cart
 
 
 class ItemFactory:
@@ -25,10 +25,16 @@ def checkout(skus: str) -> int:
         if sku not in items_factory.items_db:
             return -1
 
+    shopping_cart = []
     for item in list(skus):
         item_model = items_factory.get_item(item)
 
+    cart = Cart(shopping_cart)
+
+
+
     # raise NotImplementedError()
+
 
 
 
