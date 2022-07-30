@@ -34,8 +34,3 @@ def checkout(skus: str) -> int:
 
 
     # raise NotImplementedError()
-
-
-
-
-

@@ -9,4 +9,3 @@ special_offers = {
     'A': {'quantity': 3, 'price': 130},
     'B': {'quantity': 2, 'price': 45}
 }
-
