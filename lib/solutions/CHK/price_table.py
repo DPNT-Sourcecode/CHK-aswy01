@@ -46,17 +46,25 @@ special_offers = {
     'F': [{'quantity': 3, 'price': 20}],
     'H': [{'quantity': 10, 'price': 80}, {'quantity': 5, 'price': 45}],
     'K': [{'quantity': 2, 'price': 150}],
+    'P': [{'quantity': 5, 'price': 200}],
+    'Q': [{'quantity': 3, 'price': 80}],
+    'U': [{'quantity': 4, 'price': 120}],
+    'V': [{'quantity': 3, 'price': 130}, {'quantity': 2, 'price': 90}],
 }
 
 bundle_assignments = {
     'B': 1,
     'E': 1,
     'N': 2,
-    'M': 2
+    'M': 2,
+    'R': 3,
+    'Q': 3
 }
 
 bundle_offers = {
     1: {'rules': {'E': 2, 'B': 1}, 'discount': 30},
-    2: {'rules': {'N': 3, 'M': 1}, 'discount': 15}
+    2: {'rules': {'N': 3, 'M': 1}, 'discount': 15},
+    3: {'rules': {'R': 3, 'Q': 1}, 'discount': 30}
 }
+
 
