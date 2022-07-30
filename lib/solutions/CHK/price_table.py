@@ -6,6 +6,7 @@
 # | C    | 20    |                        |
 # | D    | 15    |                        |
 # | E    | 40    | 2E get one B free      |
+# | F    | 10    | 2F get one F free      |
 # +------+-------+------------------------+
 
 
@@ -15,11 +16,13 @@ item_prices = [
     {'item':'C', 'price': 20},
     {'item':'D', 'price': 15},
     {'item': 'E', 'price': 40},
+    {'item': 'F', 'price': 10},
 ]
 
 special_offers = {
     'A': [{'quantity': 5, 'price': 200},{'quantity': 3, 'price': 130}],
-    'B': [{'quantity': 2, 'price': 45}]
+    'B': [{'quantity': 2, 'price': 45}],
+    'F': [{'quantity': 3, 'price': 20}]
 }
 
 bundle_assignments = {
