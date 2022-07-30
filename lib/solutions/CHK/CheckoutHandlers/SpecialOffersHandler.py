@@ -20,9 +20,9 @@ class SpecialOffersHandler(CheckoutHandler):
 
 
 
-            for offer in self.special_offers[sku]:
+            for special_offer in self.special_offers[sku]:
 
-                special_offer = self.special_offers[sku]
+                # special_offer = self.special_offers[sku]
                 number_of_special_offers_completed = len(sku_items) // special_offer['quantity']
                 number_of_items_in_offer = number_of_special_offers_completed*special_offer['quantity']
 
@@ -31,3 +31,4 @@ class SpecialOffersHandler(CheckoutHandler):
                 items_to_remove_from_cart = list(sku_items)[:number_of_items_in_offer]
 
                 cart.items.difference_update(items_to_remove_from_cart)
+
