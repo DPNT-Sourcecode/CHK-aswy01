@@ -12,7 +12,6 @@ class AnyOfOfferHandler(CheckoutHandler):
         self.bundle_assignments = bundle_assignments
         self.bundle_offers = bundle_offers
 
-
     def checkout_items(self, cart: Cart):
         items_in_specials = defaultdict(list)
         for item in cart.items:
@@ -20,20 +19,15 @@ class AnyOfOfferHandler(CheckoutHandler):
                 bundle_assigned = self.bundle_assignments[item.sku]
                 items_in_specials[bundle_assigned].append(item)
 
-        for sku, sku_items in items_in_specials.items():
-            bundle_offer = self.bundle_offers[sku]
+        for group_id, sku_items in items_in_specials.items():
+            bundle_offer = self.bundle_offers[group_id]
+            bundle_quantity = bundle_offer['quantity']
 
-            number_of_complete_bundles = math.inf
-            for req_sku, count in bundle_offer['rules'].items():
-                max_offers_complete_for_sku = len(list(filter(lambda i: i.sku == req_sku, sku_items))) // count
+            number_of_complete_bundles = len(items_in_specials) // bundle_quantity
 
-                if max_offers_complete_for_sku < number_of_complete_bundles:
-                    number_of_complete_bundles = max_offers_complete_for_sku
+            for i in list(sorted(sku_items, key=lambda e: e.price, reverse=True))[
+                     :number_of_complete_bundles * bundle_quantity]:
+                cart.items.remove(i)
 
-            cart.total -= bundle_offer['discount'] * number_of_complete_bundles
+            cart.total += bundle_offer['price']
 
-            for (item_sku, items_for_sku) in groupby(sorted((sku_items),key=lambda i: i.sku), key=lambda i: i.sku):
-                number_of_items_to_remove = number_of_complete_bundles * bundle_offer['rules'][item_sku]
-                items_for_sku = list(items_for_sku)
-                for item in list(items_for_sku)[:number_of_items_to_remove]:
-                    CheckoutHandler.checkout_item(cart, item)
